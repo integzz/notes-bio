@@ -147,9 +147,9 @@ revoke 权限 on 数据库. 表 from '用户'@'IP 地址'
 ```sql
 -- 多级表创建
 CREATE TABLE multi_tbl(
-    food_id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    food_name VARCHAR(20) NOT NULL
-    parent_id SMALLINT UNSIGNED NOT NULL DEFAULT 0
+  food_id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  food_name VARCHAR(20) NOT NULL
+  parent_id SMALLINT UNSIGNED NOT NULL DEFAULT 0
 );
 INSERT multi_tbl(main_name, parent_id) VALUES('FOOD', DEFAULT);
 INSERT multi_tbl(main_name, parent_id) VALUES('FRIUT', 1);
@@ -178,12 +178,12 @@ SELECT COUNT(DISTINCT s_id) FROM student;
 -- The continents WHERE all countries have a population <= 25000000
 SELECT DISTINCT continent FROM world x
   WHERE 25000000>=ALL
-    (SELECT population FROM world y
-        WHERE x.continent=y.continent AND population>0)
+  (SELECT population FROM world y
+    WHERE x.continent=y.continent AND population>0)
 -- the name of all players who scored a goal against Germany
 SELECT DISTINCT player
-    FROM goal JOIN game
-    ON game.id = goal.matchid AND goal.teamid!='GER' AND (game.team1='GER' OR game.team2='GER')
+  FROM goal JOIN game
+  ON game.id = goal.matchid AND goal.teamid!='GER' AND (game.team1='GER' OR game.team2='GER')
 ```
 
 ### 7.3. LIKE
@@ -211,10 +211,10 @@ WHERE winner LIKE 'EUGENE O''NEILL'
 --- <>相当于 NOT IS
 -- Name AND the population for Scandinavia.
 SELECT name, population FROM world
-    WHERE name IN ('Sweden', 'Norway', 'Denmark');
+  WHERE name IN ('Sweden', 'Norway', 'Denmark');
 -- All details (yr, subject, winner) of the Literature prize winners for 1980 to 1989 inclusive.
 SELECT yr, subject, winner FROM nobel
-    WHERE yr BETWEEN 1980 AND 1989 AND subject='literature'
+  WHERE yr BETWEEN 1980 AND 1989 AND subject='literature'
 ```
 
 ### 8.2. ALL
@@ -225,19 +225,19 @@ SELECT yr, subject, winner FROM nobel
 -- ALL 不能加=，否则将加上欧洲 GDP 最大值
 SELECT name FROM world
   WHERE gdp > ALL
-    (SELECT gdp FROM world
-        WHERE continent='Europe' AND gdp>0)
+  (SELECT gdp FROM world
+    WHERE continent='Europe' AND gdp>0)
 -- The largest country (by area) in each continent
 -- 自比较需要限定其范围
 SELECT continent, name, area FROM world x
   WHERE area >= ALL
-    (SELECT area FROM world y
-        WHERE y.continent=x.continent AND population>0)
+  (SELECT area FROM world y
+    WHERE y.continent=x.continent AND population>0)
 -- The countries have populations more than three times that of any of their neighbours (in the same continent)
 SELECT name, continent FROM world x
-    WHERE x.population/3 >= ALL
-        (SELECT population FROM world y
-            WHERE x.continent=y.continent AND x.name!=y.name AND y.population>0)
+  WHERE x.population/3 >= ALL
+    (SELECT population FROM world y
+      WHERE x.continent=y.continent AND x.name!=y.name AND y.population>0)
 ```
 
 ## 9. 分组
@@ -254,8 +254,8 @@ SELECT num FROM 表 GROUP BY num HAVING max(id) > 10
 -- 置为行首或行尾
 -- the 1984 winners AND subject ordered by subject AND winner name; but list Chemistry AND Physics last
 SELECT winner, subject FROM nobel
-    WHERE yr=1984
-    ORDER BY subject IN ('Physics', 'Chemistry') ASC, subject, winner
+  WHERE yr=1984
+  ORDER BY subject IN ('Physics', 'Chemistry') ASC, subject, winner
 ```
 
 ### 9.2. LIMIT
@@ -269,9 +269,9 @@ SELECT * FROM 表 LIMIT 4, 5;
 SELECT * FROM 表 LIMIT 5 OFF 4;
 SELECT continent, name FROM world x
   WHERE x.name =
-    (SELECT y.name FROM world y
-        WHERE y.continent=x.continent
-          ORDER BY name LIMIT 1)
+  (SELECT y.name FROM world y
+    WHERE y.continent=x.continent
+      ORDER BY name LIMIT 1)
 ```
 
 ## 10. 多表操作
@@ -284,27 +284,27 @@ SELECT continent, name FROM world x
 -- JOIN == INNER JOIN，无对应关系则不显示
 -- The dates of the matches AND the name of the team in which 'Fernando Santos' was the team1 coach
 SELECT game.mdate, eteam.teamname
-    FROM game JOIN eteam
-    ON eteam.id=game.team1 AND eteam.coach='Fernando Santos'
+  FROM game JOIN eteam
+  ON eteam.id=game.team1 AND eteam.coach='Fernando Santos'
 -- LEFT JOIN：以 A 表为基础查找，若 B 中无对应关系，则值为 null
 SELECT A.num, A.name, B.name
-    FROM A LEFT JOIN B
-    USING(nid)
+  FROM A LEFT JOIN B
+  USING(nid)
 -- RIGHT JOIN：以 B 表为基础查找，若 A 中无对应关系，则值为 null
 SELECT A.num, A.name, B.name
-    FROM A RIGHT JOIN B
-    USING(nid)
+  FROM A RIGHT JOIN B
+  USING(nid)
 -- FULL JOIN：有对应关系的合并，其余保留，非重复字段不加 TABLE 名区分
 SELECT name AS country, code, region, basic_unit
-    FROM countries FULL JOIN currencies
-    USING (code)
-    WHERE region = 'North America' OR region IS NULL
-    ORDER BY region;
+  FROM countries FULL JOIN currencies
+  USING (code)
+  WHERE region = 'North America' OR region IS NULL
+  ORDER BY region;
 -- CROSS JOIN：没有 ON，相当于合并，并混合排序
 SELECT c.name AS city, l.name AS language
-    FROM cities AS c
-    CROSS JOIN languages AS l
-    WHERE c.name LIKE 'Hyder%';
+  FROM cities AS c
+  CROSS JOIN languages AS l
+  WHERE c.name LIKE 'Hyder%';
 ```
 
 ### 10.2. USING
@@ -315,21 +315,21 @@ USING：Postgres 独有，用于 JOIN 中相同 ON 字段的省略，在自关�
 -- 自关联
 -- 直接自关联，会出现相同组合（仅次序不同）
 SELECT p1.country_code,
-       p1.size AS size2010,
-       p2.size AS size2015
+     p1.size AS size2010,
+     p2.size AS size2015
 FROM populations AS p1
 INNER JOIN populations AS p2
 ON p1.country_code = p2.country_code
 -- 此时需要在末尾补充相同字段的关系
-    AND p1.year = p2.year - 5;
+  AND p1.year = p2.year - 5;
 -- the services which connect the stops 'Craiglockhart' and 'Tollcross'
 SELECT a.company, b.num
-    FROM route AS a JOIN route AS b
-    USING(company) AND USING(num)
-    -- 等价于 ON a.company=b.company AND a.num=b.num
-    JOIN stops as x ON a.stop=x.id
-    JOIN stops as y ON b.stop=y.id
-    WHERE x.name='Craiglockhart' AND y.name='Tollcross'
+  FROM route AS a JOIN route AS b
+  USING(company) AND USING(num)
+  -- 等价于 ON a.company=b.company AND a.num=b.num
+  JOIN stops as x ON a.stop=x.id
+  JOIN stops as y ON b.stop=y.id
+  WHERE x.name='Craiglockhart' AND y.name='Tollcross'
 ```
 
 ### 10.3. 集合操作
@@ -337,16 +337,16 @@ SELECT a.company, b.num
 ```sql
 -- UNION：取并集，重合部分合并
 SELECT yr, subject, winner FROM nobel
-    WHERE subject = 'physics' AND yr=1980
+  WHERE subject = 'physics' AND yr=1980
 UNION
 SELECT yr, subject, winner FROM nobel
-    WHERE subject ='chemistry' AND yr=1984
+  WHERE subject ='chemistry' AND yr=1984
 -- UNION ALL：取并集，不处理重合部分
 SELECT nickname
-    FROM A
+  FROM A
 UNION ALL
 SELECT s_name
-    FROM B
+  FROM B
 -- INTERSECT：取交集
 -- EXCEPT：取补集
 ```
@@ -359,10 +359,10 @@ SELECT s_name
 -- the name AND the population of each country in Europe
 -- Show the population as a percentage of the population of Germany
 SELECT name, CONCAT
-    (ROUND(100*population/
-        (SELECT population FROM world
-            WHERE name='Germany')), '%')
-    FROM world WHERE continent='Europe'
+  (ROUND(100*population/
+    (SELECT population FROM world
+      WHERE name='Germany')), '%')
+  FROM world WHERE continent='Europe'
 ```
 
 ### 11.2. 嵌套聚合
@@ -398,25 +398,25 @@ ORDER BY lang_num DESC;
 ```sql
 -- CASE...WHEN...THEN...ELSE...END...AS...FROM
 SELECT name, continent, code, surface_area,
-    CASE WHEN surface_area > 2000000 THEN 'large'
-        WHEN surface_area >350000 THEN 'medium'
-        ELSE 'small' END
-        AS geosize_group
+  CASE WHEN surface_area > 2000000 THEN 'large'
+    WHEN surface_area >350000 THEN 'medium'
+    ELSE 'small' END
+    AS geosize_group
 INTO surface_plus
 FROM countries;
 WHERE year = 2015;
 -- COALESCE takes any number of arguments and returns the first not-null value
 -- the MSP with no party (such as Canavan, Dennis) you show the string None
 SELECT name, party,
-    COALESCE(party, 'None') AS aff
-    FROM msp
-    WHERE name LIKE 'C%';
+  COALESCE(party, 'None') AS aff
+  FROM msp
+  WHERE name LIKE 'C%';
 -- NULLIF returns NULL if the two arguments are equal
 -- otherwise NULLIF returns the first argument
 SELECT name, party,
-    NULLIF(party, 'Lab') AS aff
-    FROM msp
-    WHERE name LIKE 'C%';
+  NULLIF(party, 'Lab') AS aff
+  FROM msp
+  WHERE name LIKE 'C%';
 ```
 
 ## 12. 自定义函数

@@ -227,12 +227,12 @@ from flask import Flask, abort
 # 指定状态码
 @app.route('/hello')
 def hello():
-    return '<h1>Hello, Flask !</h1>', 201
+  return '<h1>Hello, Flask !</h1>', 201
 
 # 错误响应
 @app.route('/404')
 def not_found():
-    abort(404)
+  abort(404)
 ```
 
 ### 3.2. 响应报文
@@ -247,20 +247,20 @@ from flask import mark_response
 
 @app.route('/foo')
 def foo():
-    response = mark_response('Hi')
-    # 指定 MIME 类型
-    response.mimetype = 'text/plain'
-    return response
+  response = mark_response('Hi')
+  # 指定 MIME 类型
+  response.mimetype = 'text/plain'
+  return response
 
 from flask import jsonify
 
 @app.route('/foo')
 def foo():
-    # json 化
-    return jsonify({
-      name:'Grey Li',
-      gender:'male'
-     })
+  # json 化
+  return jsonify({
+    name:'Grey Li',
+    gender:'male'
+   })
 ```
 
 |       条目        |                       作用                       |
@@ -285,9 +285,9 @@ from flask import Flask, make_response
 
 @app.route('/set/<name>')
 def set_cookie(name):
-    response=make_response(redirect(url_for('hello')))
-    response=set_cookie('name', name)
-    return response
+  response=make_response(redirect(url_for('hello')))
+  response=set_cookie('name', name)
+  return response
 ```
 
 然而，这会带来一个问题，在浏览器中手动添加和修改 Cookie 是很容易的事，仅仅通过浏览器插件就可以实现。为了避免这个问题，需要对敏感 Cookie 容进行加密。于是，就有了 Session，即加密的 Cookie。
@@ -315,8 +315,8 @@ from flask import redirect, session, url_for
 
 @app.route('/login')
 def login():
-    session['logged_in'] = True  #写入 session
-    return redirect(url_for('hello'))
+  session['logged_in'] = True  #写入 session
+  return redirect(url_for('hello'))
 ```
 
 - 登录后
@@ -327,15 +327,15 @@ from flask import request, session
 @app.route('/')
 @app.route('/hello')
 def hello():
-    name = request.args.get('name')
-    if name is None:
-        name = request.cookies.get('name', 'Human')
-        response = f'<h1>Hello, {name} !</h1>'  # 根据用户认证状态返回不同的内容
-        if 'logged_in' in session:
-            response = '[Authenticated]'
-        else:
-            response += '[Not Authenticated]'
-        return response
+  name = request.args.get('name')
+  if name is None:
+    name = request.cookies.get('name', 'Human')
+    response = f'<h1>Hello, {name} !</h1>'  # 根据用户认证状态返回不同的内容
+    if 'logged_in' in session:
+      response = '[Authenticated]'
+    else:
+      response += '[Not Authenticated]'
+    return response
 ```
 
 - 登出
@@ -345,9 +345,9 @@ from flask import session
 
 @app.route('/logout')
 def logout():
-    if 'logged_in' in session:
-        session.pop('logged_ in')
-    return redirect(url_for('hello'))
+  if 'logged_in' in session:
+    session.pop('logged_ in')
+  return redirect(url_for('hello'))
 ```
 
 - 后台管理
@@ -357,9 +357,9 @@ from flask import session, abort
 
 @app.route('/admin')
 def admin():
-    if 'logged_in' not in session:
-        abort(403)
-    return 'Welcome to admin page.'
+  if 'logged_in' not in session:
+    abort(403)
+  return 'Welcome to admin page.'
 ```
 
 ## 4. 重定向
@@ -371,13 +371,13 @@ from flask import Flask, redirect, url_for
 
 @app.route('/hello')
 def hello():
-    # redirect() 默认状态码为 302，即临时重定向，其第二个参数可以指定状态码
-    return redirect('http://www.example.com')
+  # redirect() 默认状态码为 302，即临时重定向，其第二个参数可以指定状态码
+  return redirect('http://www.example.com')
 
 # 重定向到其他视图
 @app.route('/hi')
 def hi():
-    return redirect(url_for('hello'))
+  return redirect(url_for('hello'))
 ```
 
 ### 4.1. 返回上一个页面
@@ -395,9 +395,9 @@ def bar():
 
 def redirect_back(default='hello', **kwargs):
   for targe in request.args.get('next'), request.referrer:
-    if target:
-      return redirect(target)
-    return redirect(url_for(default, **kwargs))
+  if target:
+    return redirect(target)
+  return redirect(url_for(default, **kwargs))
 
 @app.route('/do something and redirect')
 def do_something():
@@ -414,22 +414,22 @@ from urllib.parse import urlparse, urljoin
 from flask import request
 
 def is_safe_url(target):
-    ref_url = urlparse(request.host_url)
-    test_url = urlparse(urljoin(request.host_url, target))
-    return test_url.scheme in ('http',
-                               'https') and ref_url.netloc == test_url.netloc
+  ref_url = urlparse(request.host_url)
+  test_url = urlparse(urljoin(request.host_url, target))
+  return test_url.scheme in ('http',
+                 'https') and ref_url.netloc == test_url.netloc
 ```
 
 在执行重定向回上个页面的 `redirect_back()` 函数中，使用 `is_safe_url` 验证 `next` 和 `referer` 的值。
 
 ```python
 def redirect_back(default='hello', **kwargs):
-    for target in request.args.get('next'), request.referrer:
-        if not target:
-            continue
-        if is_safe_url(target):
-            return redirect(target)
-        return redirect(url_for(default, **kwargs))
+  for target in request.args.get('next'), request.referrer:
+    if not target:
+      continue
+    if is_safe_url(target):
+      return redirect(target)
+    return redirect(url_for(default, **kwargs))
 ```
 
 ## 5. 上下文
@@ -442,11 +442,11 @@ def redirect_back(default='hello', **kwargs):
 
 - 上下文
   - 程序
-    - `current_ app`：指向处理请求的当前程序实例
-    - `g`：替代 Python 全局变量用法，确保仅在当前请求中可用。用于存储全局数据，每次请求都会重置。
+  - `current_ app`：指向处理请求的当前程序实例
+  - `g`：替代 Python 全局变量用法，确保仅在当前请求中可用。用于存储全局数据，每次请求都会重置。
   - 请求
-    - `request`：封装客户端发出的请求报文数据
-    - `session`：记住请求之间的数据，通过签名的 Cookie 实现
+  - `request`：封装客户端发出的请求报文数据
+  - `session`：记住请求之间的数据，通过签名的 Cookie 实现
 
 ### 5.2. 激活、钩子
 

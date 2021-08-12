@@ -359,10 +359,10 @@ const forEach = (array, fn) => {
 ```javascript
 // forEachObject
 const forEachObject = (obj, fn)=>{
-    for(var property in obj){
-        if(obj.hasOwnProperty(properity){
-            fn(property, obj[property])
-       })
+  for(var property in obj){
+    if(obj.hasOwnProperty(properity){
+      fn(property, obj[property])
+     })
    }
 ```
 

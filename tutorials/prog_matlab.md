@@ -72,11 +72,11 @@ sudo python setup.py build --build-base=$env:temp install
 
 ```json
 "code-runner.executorMap": {
-    "MATLAB" : "cd $dir && MATLAB -nosplash -nodesktop -r $fileNameWithoutExt"
+  "MATLAB" : "cd $dir && MATLAB -nosplash -nodesktop -r $fileNameWithoutExt"
  },
 // 或
 "code-runner.executorMapByGlob": {
-    "*.m": "cd $dir && MATLAB -nosplash -nodesktop -r $fileNameWithoutExt"
+  "*.m": "cd $dir && MATLAB -nosplash -nodesktop -r $fileNameWithoutExt"
  },
 ```
 

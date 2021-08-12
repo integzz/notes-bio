@@ -24,15 +24,14 @@ Flask 默认使用的模板引擎是 Jinja2，一个功能齐全的 Python 模�
     <a href=" {{url for ('index')}}">&larr; Return</a>
     <h2>{{user.username}}</h2>
     {% if user.bio %}
-    <i>{{user.bio}}</i>
-    {%else%}
+    <i>{{user.bio}}</i>} {%else%}}
     <i>This user has not provided a bio.</i>
     {% endif %} {# 下面是电影清单（这是注释）#}
     <h5>{{user.username}}'s Watchlist ({{movies.length}}):</h5>
     <ul>
       {% for movie in movies%}
       <li>{{movie.name}} - {{movie.year}}</li>
-      {% endfor %}
+      } {% endfor %}
     </ul>
   </body>
 </html>
@@ -45,26 +44,26 @@ from flask import Flask, render_template
 
 @app.route('/watchlist')
 def watchlist():
-    return render_template('watchlist.html', user=user, movies=movies)
+  return render_template('watchlist.html', user=user, movies=movies)
 
 user = {'username': 'Li', 'bio': 'A boy who loves movies.'}
 
 movies = [
-    {
-        'name': 'Perfect Blue',
-        'year': '1997'
+  {
+    'name': 'Perfect Blue',
+    'year': '1997'
    },
-    {
-        'name': 'The Matrix',
-        'year': '1999'
+  {
+    'name': 'The Matrix',
+    'year': '1999'
    },
-    {
-        'name': 'Memento',
-        'year': '2000'
+  {
+    'name': 'Memento',
+    'year': '2000'
    },
-    {
-        'name': 'The Bucket list',
-        'year': '2007'
+  {
+    'name': 'The Bucket list',
+    'year': '2007'
    },
 ]
 ```
@@ -105,7 +104,7 @@ Jinja2 有一个模板继承特性，就是将所有模板中相同的部分转�
   <head>
     {% if title %}
     <title>{{title}} - Mini Blog</title>
-    {% else %}
+    } {% else %}
     <title>Mini Blog</title>
     {% endif %}
   </head>
@@ -119,10 +118,10 @@ Jinja2 有一个模板继承特性，就是将所有模板中相同的部分转�
     <!-- 返回用 flash() 注册过的消息列表-->
     <!--闪现消息的一个有趣的属性是，一旦通过 `get_flashed_messages` 函数请求了一次，它们就会从消息列表中移除-->
     {% with messages = get_flashed_messages() %}
-    <!--检查变量 `messages` 是否包含元素，若有，则在 `<ul>` 元素中，为每条消息用 `<li>` 元素来包裹渲染-->
-    {% if messages %}
+    <!--检查变量 `messages` 是否包含元素，若有，则在 `<ul>` 元素中，为每条消息用 `<li>` 元素来包裹渲染-->}
+    {% if messages %}}
     <ul>
-      {% for message in messages %}
+      } {% for message in messages %}
       <li>{{message}}</li>
       {% endfor %}
     </ul>
@@ -227,15 +226,15 @@ from app import LoginForm
 # 覆盖默认的 GET
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm()
-    # 执行 form 校验的工作
-    if form.validate_on_submit():
-        flash(
-            f'Login requested for user {form.username.data}, remember_me={form.remember_me.data}.'
-        )
-        # 指引浏览器自动重定向到它的参数所关联的 URL
-        return redirect(url_for('index'))
-    return render_template('login.html', title='Sign In', form=form)
+  form = LoginForm()
+  # 执行 form 校验的工作
+  if form.validate_on_submit():
+    flash(
+      f'Login requested for user {form.username.data}, remember_me={form.remember_me.data}.'
+    )
+    # 指引浏览器自动重定向到它的参数所关联的 URL
+    return redirect(url_for('index'))
+  return render_template('login.html', title='Sign In', form=form)
 ```
 
 ### 2.5. 登录模版

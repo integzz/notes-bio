@@ -83,12 +83,12 @@ sequenceDiagram
 
 Alice->>John: Hello John, how are you?
 loop Healthcheck
-    John->>John: Fight against hypochondria
+  John->>John: Fight against hypochondria
 end
 Note right of John: Rational thoughts!
-     John-->>Alice: Great!
-     John->>Bob   : How about you?
-     Bob-->>John  : Jolly good!
+   John-->>Alice: Great!
+   John->>Bob   : How about you?
+   Bob-->>John  : Jolly good!
 ```
 
 ### 1.3. Gantt 图
@@ -109,12 +109,12 @@ Parallel 4 : des6, after des4, 1d
 gantt
 
 section Section
-          Completed: done, des1, 2014-01-06, 2014-01-08
-          Active   : active, des2, 2014-01-07, 3d
-         Parallel 1        : des3, after des1, 1d
-         Parallel 2        : des4, after des1, 1d
-         Parallel 3        : des5, after des3, 1d
-         Parallel 4        : des6, after des4, 1d
+      Completed: done, des1, 2014-01-06, 2014-01-08
+      Active   : active, des2, 2014-01-07, 3d
+     Parallel 1    : des3, after des1, 1d
+     Parallel 2    : des4, after des1, 1d
+     Parallel 3    : des5, after des3, 1d
+     Parallel 4    : des6, after des4, 1d
 ```
 
 ## 2. 工程类
@@ -155,9 +155,9 @@ classDiagram
   Class01: int chimp
   Class01: int gorilla
   class Class10 {
-    <<service>>
-    int id
-    size()
+  <<service>>
+  int id
+  size()
  }
 ```
 
@@ -166,39 +166,39 @@ classDiagram
 ```markdown
 stateDiagram
 
-    [*]-->Active
-    state Active {
-        [*]-->NumLockOff
-        NumLockOff-->NumLockOn : EvNumLockPressed
-        NumLockOn-->NumLockOff : EvNumLockPressed
-        --
-        [*]-->CapsLockOff
-        CapsLockOff-->CapsLockOn : EvCapsLockPressed
-        CapsLockOn-->CapsLockOff : EvCapsLockPressed
-        --
-        [*]-->ScrollLockOff
-        ScrollLockOff-->ScrollLockOn : EvCapsLockPressed
-        ScrollLockOn-->ScrollLockOff : EvCapsLockPressed
-           }
+[*]-->Active
+state Active {
+[*]-->NumLockOff
+NumLockOff-->NumLockOn : EvNumLockPressed
+NumLockOn-->NumLockOff : EvNumLockPressed
+--
+[*]-->CapsLockOff
+CapsLockOff-->CapsLockOn : EvCapsLockPressed
+CapsLockOn-->CapsLockOff : EvCapsLockPressed
+--
+[*]-->ScrollLockOff
+ScrollLockOff-->ScrollLockOn : EvCapsLockPressed
+ScrollLockOn-->ScrollLockOff : EvCapsLockPressed
+}
 ```
 
 ```mermaid
 stateDiagram
 
-    [*]-->Active
-    state Active {
-        [*]-->NumLockOff
-        NumLockOff-->NumLockOn : EvNumLockPressed
-        NumLockOn-->NumLockOff : EvNumLockPressed
-        --
-        [*]-->CapsLockOff
-        CapsLockOff-->CapsLockOn : EvCapsLockPressed
-        CapsLockOn-->CapsLockOff : EvCapsLockPressed
-        --
-        [*]-->ScrollLockOff
-        ScrollLockOff-->ScrollLockOn : EvCapsLockPressed
-        ScrollLockOn-->ScrollLockOff : EvCapsLockPressed
-           }
+  [*]-->Active
+  state Active {
+    [*]-->NumLockOff
+    NumLockOff-->NumLockOn : EvNumLockPressed
+    NumLockOn-->NumLockOff : EvNumLockPressed
+    --
+    [*]-->CapsLockOff
+    CapsLockOff-->CapsLockOn : EvCapsLockPressed
+    CapsLockOn-->CapsLockOff : EvCapsLockPressed
+    --
+    [*]-->ScrollLockOff
+    ScrollLockOff-->ScrollLockOn : EvCapsLockPressed
+    ScrollLockOn-->ScrollLockOff : EvCapsLockPressed
+       }
 ```
 
 ### 2.3. 实体关系图
@@ -212,9 +212,9 @@ CUSTOMER}|..|{DELIVERY-ADDRESS : uses
 
 ```mermaid
 erDiagram
-    CUSTOMER ||--o{ORDER : places
-    ORDER ||--|{LINE-ITEM : contains
-    CUSTOMER}|..|{DELIVERY-ADDRESS : uses
+  CUSTOMER ||--o{ORDER : places
+  ORDER ||--|{LINE-ITEM : contains
+  CUSTOMER}|..|{DELIVERY-ADDRESS : uses
 ```
 
 ### 2.4. Git 图
@@ -242,8 +242,8 @@ merge newbranch
 gitGraph:
 options
   {
-    "nodeSpacing": 150,
-    "nodeRadius": 10
+  "nodeSpacing": 150,
+  "nodeRadius": 10
  }
 end
 commit
@@ -299,14 +299,14 @@ Sit down: 3: Me
 
 ```mermaid
 journey
-    title My working day
-    section Go to work
-      Make tea: 5: Me
-      Go upstairs: 3: Me
-      Do work: 1: Me, Cat
-    section Go home
-      Go downstairs: 5: Me
-      Sit down: 3: Me
+  title My working day
+  section Go to work
+    Make tea: 5: Me
+    Go upstairs: 3: Me
+    Do work: 1: Me, Cat
+  section Go home
+    Go downstairs: 5: Me
+    Sit down: 3: Me
 ```
 
 ## 5. 主题

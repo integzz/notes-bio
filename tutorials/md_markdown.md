@@ -153,14 +153,14 @@ _这是倾斜的文字_
 ```markdown
 - 一级无序列表内容
   - 二级无序列表内容
-    - 三级无序列表内容
-    - 四级无序列表内容
+  - 三级无序列表内容
+  - 四级无序列表内容
 ```
 
 - 一级无序列表内容
   - 二级无序列表内容
-    - 三级无序列表内容
-      - 四级无序列表内容
+  - 三级无序列表内容
+    - 四级无序列表内容
 
 ### 3.4. 表格
 
@@ -206,12 +206,12 @@ markers = ['o', 'd', 'r']
 colors = ['red', 'blue', 'green']
 
 for i in range(2):
-    time = mix.Time[0+i*6, 6+i*6]
-    normal = mix.Normal[0+i*6, 6+i*6]
-    ldir = mix.LDIR[0+i*6, 6+i*6]
+  time = mix.Time[0+i*6, 6+i*6]
+  normal = mix.Normal[0+i*6, 6+i*6]
+  ldir = mix.LDIR[0+i*6, 6+i*6]
 
-    ax.plot(time, normal, label=labels[i], marker=markers[i], color=colors[i])
-    ax.plot(time, ldir, label=rlabels[i], marker=markers[i], color=colors[i], linestyle='.-')
+  ax.plot(time, normal, label=labels[i], marker=markers[i], color=colors[i])
+  ax.plot(time, ldir, label=rlabels[i], marker=markers[i], color=colors[i], linestyle='.-')
 ```
 
 ### 4.2. 公式

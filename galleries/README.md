@@ -251,12 +251,12 @@ $$
 - prefer `underset{}{}` over `\limits_`
 
 $$
-\underset{w}{\rm argmin}\ (wx +b)
+\underset{w}{\rm argmin}\\ (wx +b)
 $$
 
 ```latex
 $$
-\underset{w}{\rm argmin}\ (wx +b)
+\underset{w}{\rm argmin}\\ (wx +b)
 $$
 ```
 
@@ -276,5 +276,3 @@ $$
 
 - prefer `{\bf }` over `\mathbf{}`
 - prefer `{\it }` over `\mathit{}`
-
-$\frac12$
