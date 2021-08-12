@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    :root {
+      --docsifytabs-border-color: #ededed;
+      --docsifytabs-tab-highlight-color: purple;
+    }
+  </style>
+
+  <head>
+    <link rel="icon" href="doge.png" type="image/png" />
+    <title>生物狗学编程</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="//unpkg.com/docsify-gifcontrol/dist/docsify-gifcontrol.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css"
+    />
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script>
+      var num = 0;
+      window.$docsify = {
+        name: '生物狗🐶学编程💻',
+        logo: '',
+        repo: '',
+        loadSidebar: true,
+        subMaxLevel: 2,
+        sidebarDisplayLevel: 2,
+        loadNavbar: true,
+        search: {
+          maxAge: 86400000,
+          paths: 'auto',
+          placeholder: '搜索',
+          depth: 3,
+          hideOtherSidebarContent: true,
+        },
+        toc: {
+          tocMaxLevel: 3,
+          target: 'h2, h3, h4',
+        },
+        copyCode: {
+          buttonText: 'Copy',
+          errorText: 'Error',
+          successText: 'Copied',
+        },
+        markdown: {
+          renderer: {
+            code: function (code, lang) {
+              if (lang === 'mermaid') {
+                return (
+                  '<div class="mermaid">' +
+                  mermaid.render('mermaid-svg-' + num++, code) +
+                  '</div>'
+                );
+              }
+              if (lang === 'drawio') {
+                if (window.drawioConverter) {
+                  console.log('drawio 转化中');
+                  return window.drawioConverter(code);
+                } else {
+                  return `<div class='drawio-code'>${code}</div>`;
+                }
+                return this.origin.code.apply(this, arguments);
+              } else {
+                return this.origin.code.apply(this, arguments);
+              }
+            },
+          },
+        },
+        themeable: {
+          readyTransition: true,
+          responsiveTables: true,
+        },
+        pagination: {
+          previousText: '上一章',
+          nextText: '下一章',
+          crossChapter: true,
+          crossChapterText: true,
+        },
+        plantuml: {
+          skin: 'default',
+        },
+        pseudocode: {
+          indentSize: '1.2em',
+          commentDelimiter: '//',
+          lineNumber: false,
+          lineNumberPunc: ':',
+          noEnd: false,
+          titlePrefix: 'Algorithm',
+        },
+      };
+    </script>
+    <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
+    <script src="//unpkg.com/docsify-copy-code@2"></script>
+    <script src="//unpkg.com/docsify-plugin-toc"></script>
+    <script src="//unpkg.com/docsify-gifcontrol/dist/docsify-gifcontrol.js"></script>
+    <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-bash.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-c.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-cpp.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-css.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-git.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-http.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-javascript.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-json.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-julia.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-latex.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-matlab.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-markdown.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-powershell.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-python.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-r.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-sql.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-sass.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-scss.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-typescript.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-yaml.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-pangu/lib/pangu.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-drawio/viewer.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-drawio/drawio.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-wikilink@1"></script>
+    <script src="//cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/h-hg/docsify-pseudocode/dist/docsify-pseudocode.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  </body>
+</html>

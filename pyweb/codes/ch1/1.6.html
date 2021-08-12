@@ -1,0 +1,18 @@
+<form action="/submit-cat-photo">
+  <!--单选框-->
+  <label for="indoor">
+    <!-- 默认选项 -->
+    <input id="indoor" type="radio" name="indoor-outdoor" checked />Indoor
+  </label>
+  <label for="outdoor">
+    <input id="outdoor" type="radio" name="indoor-outdoor" />outdoor </label
+  ><br />
+  <!--复选框-->
+  <label> <input type="checkbox" name="personality" checked /> Loving </label>
+  <label> <input type="checkbox" name="personality" /> Lazy </label>
+  <label> <input type="checkbox" name="personality" /> Energetic </label><br />
+  <!--单行文本框-->
+  <input type="text" placeholder="cat photo URL" required />
+  <!--提交-->
+  <button type="submit">Submit</button>
+</form>

@@ -1,0 +1,20 @@
+- 命令行
+  - [搭建 MacOS/Linux 统一开发环境](/tutorials/cmd_homebrew.md)
+  - [打造 Windows 优雅终端](/tutorials/cmd_posh.md)
+  - [搭建 Windows 统一开发环境](/tutorials/cmd_scoop.md)
+  - [打造 MacOS/Linux 优雅终端](/tutorials/cmd_zsh.md)
+- 写作环境
+  - [搭建 Markdown 舒适写作环境](/tutorials/md_env.md)
+  - [Markdown 语法](/tutorials/md_markdown.md)
+  - [Mermaid 绘图](/tutorials/md_mermaid.md)
+  - [搭建 LaTeX 轻量级写作环境](/tutorials/prog_latex.md)
+- 编程环境
+  - [搭建 Julia 轻量级编写环境](/tutorials/prog_julia.md)
+  - [搭建 MATLAB 轻量级编写环境](/tutorials/prog_matlab.md)
+  - [搭建 Python 轻量级编写环境](/tutorials/prog_python.md)
+  - [搭建 R 编写轻量级环境](/tutorials/prog_r.md)
+  - [搭建 WSL2 下的 Kali 环境](/tutorials/prog_wsl2_kali.md)
+- 其他
+  - [SQL 数据库](/tutorials/tt_database.md)
+  - [Python 可视化漫谈](/tutorials/tt_pyviz.md)
+  - [翻墙经验](/tutorials/gfw.md)
