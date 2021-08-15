@@ -3,7 +3,6 @@
 |        Code        |                                              Viewer                                               |                                                 Editor                                                 |
 | :----------------: | :-----------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: |
 | Matplotlib-Seaborn | [view](https://nbviewer.jupyter.org/github/integzz/notes-bio/blob/master/galleries/mpl_sns.ipynb) | [edit](https://colab.research.google.com/github/integzz/notes-bio/blob/master/galleries/mpl_sns.ipynb) |
-|       Pandas       | [view](https://nbviewer.jupyter.org/github/integzz/notes-bio/blob/master/galleries/pandas.ipynb)  | [edit](https://colab.research.google.com/github/integzz/notes-bio/blob/master/galleries/pandas.ipynb)  |
 
 ## 1. Technical Stacks
 
