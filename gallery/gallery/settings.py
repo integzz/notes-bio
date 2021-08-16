@@ -31,7 +31,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.auth', 'django.contrib.admin',
     'django.contrib.contenttypes', 'django.contrib.sessions',
     'django.contrib.messages', 'django.contrib.staticfiles', 'rest_framework',
-    'plots'
+    'plots.apps.PlotsConfig'
 ]
 
 MIDDLEWARE = [
