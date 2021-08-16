@@ -1,10 +1,6 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from plots import views
-
-router = DefaultRouter()
-router.register('plots', views.PlotsViewSet)
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('', views.index, name='index'),
 ]

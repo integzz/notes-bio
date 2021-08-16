@@ -1,8 +1,5 @@
-from rest_framework import viewsets
-from plots.serializers import PlotsSerializer
-from plots.models import Plots
+from django.http import HttpResponse
 
 
-class PlotsViewSet(viewsets.ModelViewSet):
-    queryset = Plots.objects.all()
-    serializer_class = PlotsSerializer
+def index(request):
+    return HttpResponse("Hello, world. You're at the polls index.")
