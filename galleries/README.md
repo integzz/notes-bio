@@ -41,7 +41,7 @@ for i in range(len(xs)):
 
 ```python
 # good
-_, axes = plt.subplots(1, 2, figsize=(10, 6), constrained_layout=True)
+_, axes = plt.subplots(1, 2, figsize=(10, 6))
 axes[0].plot(x1, y1)
 axes[1].hist(x2, y2)
 
@@ -57,7 +57,7 @@ plt.hist(x2, y2)
 
 ```python
 # good
-_, ax = plt.subplots(2, 2, constrained_layout=True)
+_, ax = plt.subplots(2, 2)
 
 for ax, x, y in zip(axes.flatten(), xs, ys):
   ax.plot(x, y)
