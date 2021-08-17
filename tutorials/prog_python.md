@@ -196,7 +196,7 @@ c.NotebookApp.use_redirect_file = False
 
 ```bash
 export BROWSER="/mnt/c/scoop/apps/firefox/current/firefox.exe"
-# 或者
+# 或
 export BROWSER="/mnt/c/'program files (x86)'/microsoft/edge/application/msedge.exe"
 ```
 
