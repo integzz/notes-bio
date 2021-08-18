@@ -1,5 +1,5 @@
 - [生物理论](/life-theories/)
 - [复杂性](/complexity/)
 - [绘图集锦](/galleries/)
-- [网络编程](/pyweb/)
+- [网络编程](/gallery/)
 - [环境配置](/tutorials/)
