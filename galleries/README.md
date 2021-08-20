@@ -250,12 +250,12 @@ $$
 - prefer `underset{}{}` over `\limits_`
 
 $$
-\underset{w}{\rm argmin}\\ (wx +b)
+\underset{w}{\rm argmin}\ (wx +b)
 $$
 
 ```latex
 $$
-\underset{w}{\rm argmin}\\ (wx +b)
+\underset{w}{\rm argmin}\ (wx +b)
 $$
 ```
 
