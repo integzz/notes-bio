@@ -17,6 +17,15 @@
 
 ### 2.1. Basics
 
+- prefer `f-string` over `.format()`
+
+```python
+# good
+
+# bad
+
+```
+
 - prefer `enumerate()` over `range(len())`
 
 ```python
@@ -127,6 +136,31 @@ movies[0:2]
 ```
 
 - prefer `.astype('category')` over `.factorize()`
+
+```python
+# good
+
+# bad
+```
+
+### NumPy
+
+- prefer `np.stack()` and `np.hstack()` and `np.vstack()` over `np.c_` or `np.r_`
+
+```python
+a = [1, 3, 5]
+b = [2, 4, 6]
+
+# good
+np.stack([a, b], axis=0)
+np.stack([a, b], axis=1)
+np.vstack([a, b])
+np.hstack([a, b])
+
+# bad
+np.r_(a, b)
+np.c_(a, b)
+```
 
 ## 3. LaTeX Styles
 
