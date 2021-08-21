@@ -6,13 +6,12 @@
 
 ## 1. Technical Stacks
 
-|                     |   Python    |       Julia        |
-| :-----------------: | :---------: | :----------------: |
-|  Language Version   |    v3.9     |        v1.6        |
-|       Basics        | Matplotlib  |     CairoMakie     |
-| Grammar of Graphics |   Seaborn   | AlgerbraOfGraphics |
-|      Enhanced       |             |      WGLMakie      |
-|  Machine Learning   | Yellowbrick |                    |
+|                     |   Python   |       Julia        |
+| :-----------------: | :--------: | :----------------: |
+|  Language Version   |    v3.9    |        v1.6        |
+|       Basics        | Matplotlib |     CairoMakie     |
+| Grammar of Graphics |  Seaborn   | AlgerbraOfGraphics |
+|      Enhanced       |            |      WGLMakie      |
 
 ## 2. Code Styles
 
