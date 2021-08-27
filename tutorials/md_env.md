@@ -1,4 +1,4 @@
-# 搭建 Markdown 舒适写作环境（VSCode）
+# 搭建 Markdown 舒适写作环境（VS Code）
 
 ## 1. Markdown 编写环境概览
 
@@ -15,7 +15,7 @@ VS Code 是当下最流行的代码编辑器，拥有丰富的扩展，这也使
 VS Code 默认是支持 Markdown 的，但还是有必装下面 3 个插件提高写作效率。
 
 - Markdown All in One
-- Markdown Preview Enhanced
+- Markdown Preview Mermaid Support
 - mardownlint
 
 ### 2.1. Markdown All in One
@@ -27,7 +27,7 @@ VS Code 默认是支持 Markdown 的，但还是有必装下面 3 个插件提�
 - 自动格式化表格
 - LaTeX 数学公式支持
 
-![Markdown All in One](images/vscode/md.png)
+![Markdown All in One](images/vscode/md_allinone.png)
 
 ### 2.2. markdownlint
 
@@ -69,7 +69,7 @@ brew install pandoc
 }
 ```
 
-但事实证明，这个并不好用。建议先转.docx，然后再转.pdf。
+但事实证明，这个并不好用。建议先转.docx，然后再转 .pdf。
 
 ![Pandoc2](images/vscode/pandoc2.png)
 
@@ -97,4 +97,4 @@ brew install pandoc
 
 ### 3.4. 知乎发布
 
-Zhihu On VS Code 是最近非常有人气的一个扩展，可用于 Markdown 在知乎上一键发布，尤其适合存在**大量图片和代码块**的帖子，当然也在 VS Code 里**看帖摸鱼**。有兴趣的可参看其作者的介绍。
+WPL/s 继承于 Zhihu On VS Code，可用于 Markdown 在知乎上一键发布，尤其适合存在**大量图片和代码块**的帖子，当然也在 VS Code 里**看帖摸鱼**。有兴趣的可参看其作者的介绍。
