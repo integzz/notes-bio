@@ -4,7 +4,7 @@ Windows 下的 Python 环境经常会给人带来一系列的困扰，如，时�
 
 下面仅以 Miniconda 的安装为例，分享一下我自己关于 WSL2 配置的一些经验。
 
-## 1. 安装 WSL2
+## 1. WSL2
 
 ### 1.1. 开启虚拟机功能
 
@@ -18,7 +18,7 @@ Windows 下的 Python 环境经常会给人带来一系列的困扰，如，时�
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
-### 1.2. 安装发行版
+### 1.2. 发行版
 
 在 Windows 应用商店搜索 WSL ，选择自己想要的 Linux 发行版，点击下载安装即可。这里选择的是 Ubuntu 20.04。
 
@@ -144,7 +144,7 @@ nameserver 8.8.8.8
 sudo apt remove --purge python3
 ```
 
-## 3. 安装 Miniconda
+## 3. Miniconda
 
 ### 3.1. 下载安装
 
@@ -166,7 +166,17 @@ conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/pytorch
 
 有关 Conda 的具体使用，这里不再赘述。
 
-## 4. 安装 JupyterLab
+### 3.3. VS Code
+
+一键安装扩展
+
+![python](images/vscode/python.png)
+
+另外按照补全工具
+
+![tabnine](images/vscode/tabnine.png)
+
+### 3.4. JupyterLab
 
 第一步非常简单，命令如下
 
@@ -204,9 +214,9 @@ export BROWSER="/mnt/c/'program files (x86)'/microsoft/edge/application/msedge.e
 
 ![jupyterLab](images/jupyter/python.png)
 
-## 5. 沙雕版 GUI
+## 4. GUI
 
-### 5.1. VcXsrv 的安装和配置
+### 4.1. VcXsrv 的安装和配置
 
 这里，我们选择最省心的 VcXsrv，其下载链接为 [VcXsrv](https://sourceforge.net/projects/vcxsrv/)
 
@@ -226,7 +236,7 @@ scoop install vcxsrv
 
 最后，完成配置
 
-### 5.2. xfce4 的安装和配置
+### 4.2. xfce4 的安装和配置
 
 进入 WSL2，安装 xfce4
 
@@ -256,7 +266,7 @@ export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/nu
 export LIBGL_ALWAYS_INDIRECT=1
 ```
 
-### 5.3. 启动 GUI
+### 4.3. 启动 GUI
 
 重启 bash 或 zsh
 
