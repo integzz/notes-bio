@@ -65,7 +65,7 @@ scoop install sudo
 
 ### 步骤 5：通过 `scoop help` 查看使用简介
 
-![help](images/scoop/scoop3.png)
+![help](images/cmdline/scoop3.png)
 
 更多信息，请访问 [Scoop 官网](https://scoop.sh/)
 
@@ -123,7 +123,7 @@ scoopet 库包含的安装脚本分为如下四类：
 
 > 详情见 [README_CN](https://github.com/integzz/scoopet/blob/master/README_CN.md)
 
-![scoopet](images/scoop/scoop2.png)
+![scoopet](images/cmdline/scoop2.png)
 
 ### 步骤 4：安装 App
 
@@ -177,7 +177,7 @@ scoop cleanup
 scoop checkup
 ```
 
-![list](images/scoop/scoop3.png)
+![list](images/cmdline/scoop3.png)
 
 ### 命令行推荐
 
@@ -242,7 +242,7 @@ Scoop bucket 的创建的关键步骤有如下两个：
 
 一个标准的 scoop bucket，大致结构如下：
 
-![Bucket](images/scoop/bucket.png)
+![Bucket](images/cli/bucket.png)
 
 推荐直接 fork 这个 repo，这是当前 Scoop 社区的 Leader 写的模板，[](https://github.com/Ash258/GenericBucket)。
 
@@ -252,7 +252,7 @@ Scoop bucket 的创建的关键步骤有如下两个：
 
 Scoop 脚本的大致结构如下：
 
-![manifest](images/scoop/manifest.png)
+![manifest](images/cli/manifest.png)
 
 需要做的就是将其中的各项替换。现对各个项目做一下介绍，加 `*` 的是必填项：
 
@@ -286,6 +286,6 @@ certutil -hashfile [file] sha1
   - 大部分都需要在下载链接末尾添加`#/dl.7z`（Scoop 默认使用 7zip 进行解压安装）；
   - 不能直接解压的，若内置有 `innosetup`，需要在脚本里添加，`"innosetup": true`；
 
-![Scoop script](images/scoop/manifest2.png)
+![Scoop script](images/cli/manifest2.png)
 
 祝愿感兴趣的朋友早日拥有自己的 bucket，方便自己，也方便他人。

@@ -1,18 +1,14 @@
 # 打造 Windows 优雅终端
 
-## Oh-My-Posh
+## 1. Powershell
 
-Oh-My-Posh 是一款 Powershell 的美化主题，其受启发于 MacOS/Linux 上广泛使用的 Oh-My-Zsh。
+### 1.1. 主题
 
-### 安装
+Starship 是由 Rust 编写的跨平台命令行主题，简单、高效、容易配置。
 
-Oh-My-Posh 可以直接在 Powershell 中进行安装：
-
-```powershell
-Install-Module -Name oh-my-posh
+```bash
+scoop install starship
 ```
-
-[官网教程](https://ohmyposh.dev/)
 
 因为涉及到字体和 Windows-Terminal，这里推荐使用 Scoop 安装（见 Scoop 篇的介绍）：
 
@@ -21,32 +17,7 @@ scoop install oh-my-posh
 scoop install integzz/scoopet/meslo-nf
 ```
 
-### 配置
-
-打开 PROFILE 文件：
-
-```powershell
-Set-Prompt
-# PROFILE
-if (!(Test-Path -Path $PROFILE )) {New-Item -Type File -Path $PROFILE -Force}
-# 使用 VS Code 打开（没有的话，装一个）
-code $PROFILE
-```
-
-选择主题
-
-```powershell
-# 主题路径
-Invoke-Expression (oh-my-posh --init --shell pwsh --config $env:scoop/apps/oh-my-posh/current/themes.original/kaggle.omp.json)
-```
-
-退出并写入
-
-```powershell
-echo $profile
-```
-
-### 使用 Linux 命令
+### 1.2. 使用 Linux 命令
 
 安装 `gow`，其可将 Powershell 的命令替换成对应的 Bash 命令
 
@@ -54,7 +25,7 @@ echo $profile
 scoop install gow
 ```
 
-## Windows-Terminal
+## 2. Windows-Terminal
 
 - 安装
 
@@ -62,7 +33,7 @@ scoop install gow
 scoop install windows-terminal
 ```
 
-### 右键菜单
+### 2.1. 右键菜单
 
 ```powershell
 $basePath = "Registry::HKEY_CLASSES_ROOT\Directory\Background\shell"
@@ -71,9 +42,9 @@ sudo New-ItemProperty -Path "$basePath\wt" -Force -Name "Icon" -PropertyType Exp
 sudo New-Item -Path "$basePath\wt\command" -Force -Type ExpandString -Value '"C:\Scoop\apps\windows-terminal\current\WindowsTerminal.exe" -p PowerShell -d "%V"'
 ```
 
-![oh-my-posh](images/terminal/posh.png)
+![oh-my-posh](images/cmdline/posh.png)
 
-### 整体配置
+### 2.2. 整体配置
 
 ```json
 {
@@ -137,7 +108,7 @@ sudo New-Item -Path "$basePath\wt\command" -Force -Type ExpandString -Value '"C:
 }
 ```
 
-### VS Code 整合
+### 2.3. VS Code 整合
 
 ![settings](images/vscode/settings.png)
 
@@ -158,7 +129,7 @@ sudo New-Item -Path "$basePath\wt\command" -Force -Type ExpandString -Value '"C:
 }
 ```
 
-### 自定义快捷键
+### 2.4. 自定义快捷键
 
 ```json
 {
@@ -201,13 +172,13 @@ sudo New-Item -Path "$basePath\wt\command" -Force -Type ExpandString -Value '"C:
 }
 ```
 
-### 自定义主题
+### 2.5. 自定义主题
 
 以下链接有非常多的主题可供挑选，选择其中的 .json 文件，加入 settings.json。
 
 [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes/tree/master/windowsterminal)
 
-## PSReadLine
+## 3. PSReadLine
 
 - 安装
 
@@ -238,7 +209,7 @@ Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 ```
 
-## 整合 Scoop
+## 4. 整合 Scoop
 
 添加以下配置
 
@@ -247,7 +218,7 @@ Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName
 Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName)\modules\scoop-completion" -ErrorAction SilentlyContinue
 ```
 
-## 自定义别名
+### 4.1. 自定义别名
 
 ```powershell
 # scoop

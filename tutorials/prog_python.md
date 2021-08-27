@@ -82,7 +82,7 @@ sudo passwd root
 sudo adduser username
 ```
 
-![Terminal](images/terminal/zsh.png)
+![Terminal](images/cmdline/zsh.png)
 
 ### 2.3. 软件源
 
