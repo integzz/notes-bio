@@ -15,8 +15,8 @@ VS Code 是当下最流行的代码编辑器，拥有丰富的扩展，这也使
 VS Code 默认是支持 Markdown 的，但还是有必装下面 3 个插件提高写作效率。
 
 - Markdown All in One
-- Markdown Preview Mermaid Support
 - mardownlint
+- Markdown Preview Mermaid Support
 
 ### 2.1. Markdown All in One
 
@@ -33,13 +33,23 @@ VS Code 默认是支持 Markdown 的，但还是有必装下面 3 个插件提�
 
 这是个功能强大的 Markdown 语法检查器，可以帮助你书写出规范的文档，同时避免书写错误导致文档无法渲染。个人观点，认为这个也是必装扩展。
 
+![markdownlint](images/vscode/md_lint.png)
+
+### 2.3. Markdown Preview Mermaid Support
+
+很多时候，写文档难免需要绘制一些用于说明的插图，如流程图、甘特图等，这个时候，若另开一个应用画图，再导入文档，则略显繁琐。前文提到的 MPE 扩展支持的 mermaid.js 可轻松解决这一难题。简单说，mermaid.js 就是一个 Markdown 的绘图工具包
+
+Markdown Preview Mermaid Support 支持 mermaid 预览。
+
+![mermaid](images/vscode/md_mermaid.png)
+
+> mermaid 语法介绍，可参考 Markdown 绘图。
+
 ## 3. 功能扩展
 
 ### 3.1. 导出
 
-Pandoc 是文档格式领域的瑞士军刀，几乎实现了常见文档格式所有变换，像 .docx，.md，.html，.pdf 这些格式更是不在话下。给个其官网部分截图（涉及的格式实在太多，截取三分之一，字就已经特别小了）。
-
-![Pandoc](images/vscode/pandoc1.png)
+Pandoc 是文档格式领域的瑞士军刀，几乎实现了常见文档格式所有变换，像 .docx，.md，.html，.pdf 这些格式更是不在话下。
 
 Pandoc 的下载可去官网手动下载
 
@@ -71,7 +81,7 @@ brew install pandoc
 
 但事实证明，这个并不好用。建议先转.docx，然后再转 .pdf。
 
-![Pandoc2](images/vscode/pandoc2.png)
+![pandoc](images/vscode/pandoc.png)
 
 ### 3.2. 字数统计
 
@@ -89,12 +99,17 @@ brew install pandoc
 
 ### 3.3. 文档绘图
 
-很多时候，写文档难免需要绘制一些用于说明的插图，如流程图、甘特图等，这个时候，若另开一个应用画图，再导入文档，则略显繁琐。前文提到的 MPE 扩展支持的 mermaid.js 可轻松解决这一难题。简单说，mermaid.js 就是一个 Markdown 的绘图工具包，关于其介绍，可参考 Markdown 绘图。
-
-当然，若习惯于图形化的界面，VS Code 现在提供了另一种选择，即大名鼎鼎的 [Draw.io](https://app.diagrams.net/) 的内嵌扩展，安装完毕后三连：➡️ 新建 .drawio 文件 ➡️ 傻瓜绘图 ➡️ 导出为需要的格式。
+虽然有 mermaid，但有时候我们总会需要绘制一些复杂的图形。这时，可以使用 VS Code 商店里大名鼎鼎的 [Draw.io](https://app.diagrams.net/) 的内嵌扩展，安装完毕后三连：➡️ 新建 .drawio 文件 ➡️ 傻瓜绘图 ➡️ 导出为需要的格式。
 
 ![Draw.io](images/vscode/drawio.png)
 
-### 3.4. 知乎发布
+### 3.4. WYSIWYG 模式
+
+Typora 往往被当作 markdown 的首选，这很大程度上得益于所见即所得（WYSIWYG）模式，如今 VS Code 社区也提供了相应的，虽然还不够成熟，但已经迈出了重要的一步。其中，最有人气的是如下两个，其均基于 vditor，这方面我还会持续关注
+
+- Office Viewer
+- Markdown Editor
+
+### 3.5. 知乎发布
 
 WPL/s 继承于 Zhihu On VS Code，可用于 Markdown 在知乎上一键发布，尤其适合存在**大量图片和代码块**的帖子，当然也在 VS Code 里**看帖摸鱼**。有兴趣的可参看其作者的介绍。

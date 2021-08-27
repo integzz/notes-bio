@@ -30,7 +30,7 @@ brew install basictex
 
 `LaTeX Workshop` 基本上没什么可说的，使用 VS Code 写 LaTeX 的都会使用这个扩展，可认为是必备。
 
-![LaTeX](images/vscode/latex1.png)
+![LaTeX](images/vscode/latex.png)
 
 安装完毕后，"ctrl"+", " 打开配置，并在搜索框中输入"json"，打开配置的 .json 文件。
 
